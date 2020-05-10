@@ -3,10 +3,10 @@ project(base64 C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_library(base64 base64.c base64.h main.c urlsafe.h  urlsafe.c)
+add_library(base64 base64.c base64.h urlsafe.h  urlsafe.c)
 
 add_executable(base64_exe main.c)
-set(CMAKE_C_FLAGS "-Weverything -Wall -Werror=vla -Wno-vla -Wextra -Wshadow -Wconversion -Wno-long-long -pedantic -fsanitize=address -fno-omit-frame-pointer" CACHE STRING "C compiler flags" FORCE )
+set(CMAKE_C_FLAGS "-Weverything -Wall -Werror -Wextra -Wshadow -Wconversion -Wno-long-long -pedantic -fsanitize=address -fno-omit-frame-pointer" CACHE STRING "C compiler flags" FORCE )
 target_link_libraries (base64_exe LINK_PUBLIC base64)
 
 
