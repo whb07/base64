@@ -31,11 +31,9 @@ void ReplaceSafeChars(char *url_safe_coded_src, int len_url_safe_coded_src){
     }
 }
 
-int decodeURLSafe(char * plain_dst, const char *coded_src, int len_coded_src) {
-    char tmp[len_coded_src];
-    strcpy(tmp, coded_src);
-    ReplaceSafeChars(tmp, len_coded_src);
-    return Base64decode(plain_dst, tmp);
+int decodeURLSafe(char * plain_dst, char *coded_src, int len_coded_src) {
+    ReplaceSafeChars(coded_src, len_coded_src);
+    return Base64decode(plain_dst, coded_src);
 }
 
 
@@ -51,4 +49,13 @@ int encodeURLSafeWithPadding(char * coded_dst, int len_coded_dst, const char *pl
     int result = Base64encode(coded_dst, plain_src, len_plain_src);
     SwapNotSafeChars(coded_dst, len_coded_dst);
     return result;
+}
+
+int length(const char *str){
+    int i = 0;
+    while(str[i] != '\0'){
+        i++;
+    }
+    // add one for the null fairy
+    return i + 1;
 }
