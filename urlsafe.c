@@ -1,6 +1,5 @@
 #include "urlsafe.h"
 #include "base64.h"
-#include <string.h>
 
 void RemovePadding(char * coded_dst, int len_coded_dst) {
     for(int i = 0; i < len_coded_dst; i++){
